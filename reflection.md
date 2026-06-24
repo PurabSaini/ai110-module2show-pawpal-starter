@@ -26,6 +26,7 @@
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
 
+    I added an additonal class called PawPalSystem. It is able to take an owner's id and return names of their pets or take a pet's id and return the name of the owner. This change was necessary since I wanted ways to uniquely identify pets and owners by using Ids and still be able to access owner's info or the pet's info for a lookup option.
 ---
 
 ## 2. Scheduling Logic and Tradeoffs

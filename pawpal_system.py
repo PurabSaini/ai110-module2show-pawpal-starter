@@ -14,7 +14,7 @@ class Owner:
     def get_name(self) -> str:
         raise NotImplementedError
 
-    def get_pets(self) -> List["Pet"]:
+    def get_pets(self, system: "PawPalSystem") -> List["Pet"]:
         raise NotImplementedError
 
 
@@ -32,7 +32,7 @@ class Pet:
     def get_breed(self) -> str:
         raise NotImplementedError
 
-    def get_owner(self) -> Owner:
+    def get_owner(self, system: "PawPalSystem") -> Owner:
         raise NotImplementedError
 
     def get_schedule(self) -> "Schedule":
@@ -64,4 +64,28 @@ class Schedule:
         raise NotImplementedError
 
     def remove_task(self, time_slot: time) -> None:
+        raise NotImplementedError
+
+
+@dataclass
+class PawPalSystem:
+    """Central registry that owns all Owner and Pet records and resolves the
+    relationships between them (kept as IDs on the dataclasses)."""
+
+    owners: Dict[str, Owner] = field(default_factory=dict)
+    pets: Dict[str, Pet] = field(default_factory=dict)
+
+    def add_owner(self, owner: Owner) -> None:
+        raise NotImplementedError
+
+    def add_pet(self, pet: Pet) -> None:
+        raise NotImplementedError
+
+    def get_owner(self, owner_id: str) -> Owner:
+        raise NotImplementedError
+
+    def get_pet(self, pet_id: str) -> Pet:
+        raise NotImplementedError
+
+    def get_pets_for_owner(self, owner: Owner) -> List[Pet]:
         raise NotImplementedError
