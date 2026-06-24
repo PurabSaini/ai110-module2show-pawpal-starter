@@ -7,6 +7,20 @@
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
 
+    Need 4 classes
+    1. Owner
+        - attributes (name, id, list of pet IDs)
+        - methods (getName(id), getPets())
+    2. Pet 
+        - attributes (name, id, owner ID, breed, schedule)
+        - methods (getName(id), getBreed(), getOwner(ownerId), getSchedule())
+    3. Task
+        - attributes (action, duration, priority level)
+        - methods (getAction(), getDuration(), getPriority())
+    4. Schedule
+        - attributes (pet ID, map of Times to Tasks)
+        - methods (addTask(), removeTask())
+
 **b. Design changes**
 
 - Did your design change during implementation?
